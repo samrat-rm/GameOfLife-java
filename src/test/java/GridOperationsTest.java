@@ -24,10 +24,10 @@ public class GridOperationsTest {
                 grid.grid[row][col].state = false;
             }
         }
+
         // Setup
         grid.grid[1][1].state = true;
         Cell[][] updatedGrid = grid.updateGrid();
-
         assertFalse(updatedGrid[1][1].state);
     }
 
@@ -54,6 +54,11 @@ public class GridOperationsTest {
     @Test
     public void testUpdateGridOvercrowding() {
         GridOperations grid = new GridOperations(3, 3);
+        for( int i=0 ; i< grid.rows ; i++){
+            for(int j =0 ; j< grid.columns ; j++){
+                grid.grid[i][j].state = false;
+            }
+        }
         grid.grid[1][1].state = true;
         grid.grid[0][0].state = true;
         grid.grid[0][1].state = true;
