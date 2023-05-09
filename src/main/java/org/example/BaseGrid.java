@@ -1,6 +1,6 @@
 package org.example;
 
-public class BaseGrid {
+public abstract class BaseGrid {
     public final int rows;
     public final int columns;
     public Cell[][] grid;
@@ -14,7 +14,12 @@ public class BaseGrid {
     private Cell createCell(int row, int col) {
         Address address = new Address(row, col);
         boolean state = Math.random() < 0.5;
-        return new Cell(address, state);
+        if(state){
+            return new AliveCell(address);
+        }else{
+            return new DeadCell(address);
+        }
+
     }
 
     private Cell[][] createGrid(int rows, int columns) {

@@ -1,6 +1,6 @@
 package org.example;
 
-public class Cell {
+public abstract class Cell {
     public Address address;
     public boolean state;
 
@@ -8,7 +8,7 @@ public class Cell {
         this.address = address;
         this.state = state;
     }
-    private int countAliveNeighbor(Cell[] neighbors) {
+    public int countAliveNeighbor(Cell[] neighbors) {
         int countTrue = 0;
         for (Cell neighbor : neighbors) {
             if ( neighbor.state) {
@@ -17,21 +17,7 @@ public class Cell {
         }
         return countTrue;
     }
-    public boolean updateState(Cell[] neighbors) {
-        int countTrue = countAliveNeighbor(neighbors);
-        boolean updatedState = state ;
-        if(state){
-            if (countTrue < 2 || countTrue > 3) {
-                updatedState = false;
-            }
-        }else{
-            if(countTrue == 3){
-                updatedState = true;
-            }
-        }
-        return updatedState;
-    }
-
+    public abstract boolean updateState(Cell[] neighbors);
     @Override
     public String toString() {
         return "Cell(" + address.row + "," + address.column + "," + state + ")";

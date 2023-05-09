@@ -24,7 +24,12 @@ public class GridOperations extends BaseGrid {
                 boolean updatedState = currentCell.updateState(neighbors);
 
                 // create a new cell with the updated state and add it to the updated grid
-                Cell updatedCell = new Cell(currentCell.address, updatedState);
+                Cell updatedCell ;
+                if(updatedState){
+                    updatedCell = new AliveCell(currentCell.address);
+                }else{
+                    updatedCell = new DeadCell(currentCell.address);
+                }
                 updatedGrid[row][col] = updatedCell;
             }
         }
