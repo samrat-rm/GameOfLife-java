@@ -11,7 +11,7 @@ public class Cell {
     private int countAliveNeighbor(Cell[] neighbors) {
         int countTrue = 0;
         for (Cell neighbor : neighbors) {
-            if (neighbor.state) {
+            if ( neighbor.state) {
                 countTrue++;
             }
         }
@@ -19,12 +19,17 @@ public class Cell {
     }
     public boolean updateState(Cell[] neighbors) {
         int countTrue = countAliveNeighbor(neighbors);
-        if (countTrue < 2 || countTrue > 3) {
-            state = false;
-        } else if (countTrue == 3) {
-            state = true;
+        boolean updatedState = state ;
+        if(state){
+            if (countTrue < 2 || countTrue > 3) {
+                updatedState = false;
+            }
+        }else{
+            if(countTrue == 3){
+                updatedState = true;
+            }
         }
-        return state;
+        return updatedState;
     }
 
     @Override
