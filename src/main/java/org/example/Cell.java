@@ -8,13 +8,17 @@ public class Cell {
         this.address = address;
         this.state = state;
     }
-    public boolean updateState(Cell[] neighbors) {
+    private int countAliveNeighbor(Cell[] neighbors) {
         int countTrue = 0;
         for (Cell neighbor : neighbors) {
             if (neighbor.state) {
                 countTrue++;
             }
         }
+        return countTrue;
+    }
+    public boolean updateState(Cell[] neighbors) {
+        int countTrue = countAliveNeighbor(neighbors);
         if (countTrue < 2 || countTrue > 3) {
             state = false;
         } else if (countTrue == 3) {
