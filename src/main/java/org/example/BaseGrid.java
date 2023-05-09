@@ -1,11 +1,11 @@
 package org.example;
 
-public class Grid {
+public class BaseGrid {
     public final int rows;
     public final int columns;
     public Cell[][] grid;
 
-    public Grid(int rows, int columns) {
+    public BaseGrid(int rows, int columns) {
         this.rows = rows;
         this.columns = columns;
         this.grid = createGrid(rows, columns);
