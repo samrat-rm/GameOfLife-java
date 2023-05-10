@@ -39,5 +39,4 @@ public abstract class BaseGrid {
             return null;
         }
     }
-
 }

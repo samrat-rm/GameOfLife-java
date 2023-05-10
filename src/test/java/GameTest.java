@@ -23,9 +23,9 @@ public class GameTest {
             }
         }
         // setup
-        grid.grid[0][1].state = false;
-        grid.grid[1][2].state = false;
-        grid.grid[2][2].state = false;
+//        grid.grid[0][1].state = false;
+//        grid.grid[1][2].state = false;
+//        grid.grid[2][2].state = false;
         GridOperations expectedGrid = new GridOperations(3,3);
         // expected grid
         for (int row = 0; row < expectedGrid.rows; row++) {
@@ -35,8 +35,8 @@ public class GameTest {
         }
         expectedGrid.grid[0][0].state = true;
         expectedGrid.grid[2][0].state = true;
-        expectedGrid.grid[2][1].state = true;
-        expectedGrid.grid[1][2].state = true;
+        expectedGrid.grid[2][2].state = true;
+        expectedGrid.grid[0][2].state = true;
 
         Game game = new Game(grid);
         GridOperations updatedGrid = game.tick();
@@ -51,5 +51,4 @@ public class GameTest {
             }
         }
     }
-
 }
