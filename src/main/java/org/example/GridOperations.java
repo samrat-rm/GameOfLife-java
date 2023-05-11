@@ -5,6 +5,7 @@ import java.util.List;
 
 public class GridOperations extends BaseGrid {
     public GridOperations(int rows, int cols) {
+
         super(rows, cols);
     }
     public Cell[][] updateGrid() {
@@ -52,6 +53,4 @@ public class GridOperations extends BaseGrid {
 //        System.out.println(neighbors.size());
         return neighbors.toArray(new Cell[0]);
     }
-
-
 }

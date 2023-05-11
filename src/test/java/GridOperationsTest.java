@@ -3,7 +3,8 @@ import org.example.*;
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class GridOperationsTest {
+public class
+GridOperationsTest {
 
     @Test
     public void testUpdateGridEmptyGrid() {
@@ -24,6 +25,7 @@ public class GridOperationsTest {
 
         // Setup
         grid.grid[1][1].state = true;
+        Cell cel;
         Cell[][] updatedGrid = grid.updateGrid();
         assertFalse(updatedGrid[1][1].state);
     }

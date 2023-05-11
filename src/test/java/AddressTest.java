@@ -3,6 +3,15 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class AddressTest {
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorWithNegativeColumn() {
+        new Address(0, -1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testConstructorWithNegativeRowAndColumn() {
+        new Address(-1, -1);
+    }
 
     @Test
     public void testConstructor() {

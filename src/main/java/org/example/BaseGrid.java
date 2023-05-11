@@ -6,6 +6,9 @@ public abstract class BaseGrid {
     public Cell[][] grid;
 
     public BaseGrid(int rows, int columns) {
+        if (rows < 0 || columns < 0) {
+            throw new IllegalArgumentException("Row and column must be greater than or equal to 0.");
+        }
         this.rows = rows;
         this.columns = columns;
         this.grid = createGrid(rows, columns);
